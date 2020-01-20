@@ -1,0 +1,13 @@
+from django.shortcuts import render
+from .models import Leaderboards
+import json
+from django.http import HttpResponseRedirect, HttpResponseNotFound, JsonResponse
+# Create your views here.
+
+def get_leaderboards(request):
+    ex=Leaderboards.objects.create(name=
+    scores=Leaderboards.objects.all().order_by('-points')
+    score_list=list(scores)
+    json=json.dump(score_list)
+    return JsonResponse(json)
+    
